@@ -1,23 +1,29 @@
-type Bet @entity {
-  "Bet id"
+type Position @entity {
   id: ID!
-  "Player"
+  goblin: Bytes!
+  owner: Bytes!
+  debtShare: BigInt! # uint256
+}
+
+type Reinvest @entity {
+  id: ID!
+  caller: Bytes!
+  reward: BigInt!
+  bounty: BigInt!
+  blockTime: BigInt!
+  goblin: Bytes!
+}
+
+type Bet @entity {
+  id: ID!
   player: Player
-  "Number to win"
   playernumber: BigInt
-  "Randoem Query ID"
   randomqueryid: BigInt
-  "Betted eth"
   betvalue: BigInt
-  "Eth to win"
   profitvalue: BigInt
-  "Win+bet eth"
   rewardvalue: BigInt
-  "Dice result"
   diceresult: BigInt
-  "Proof of result"
   proof:Bytes
-  "Whether the bet was won"
   Won: Boolean
 }
 

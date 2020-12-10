@@ -29,9 +29,7 @@ type Bet @entity {
 
 
 type Player @entity {
-  "Player address"
   id: ID!
-  "Player bets"
   bets: [Bet!] @derivedFrom(field: "player")
 }
 
